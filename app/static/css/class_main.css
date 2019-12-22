@@ -1,0 +1,62 @@
+.navbar {
+    background-color: lightskyblue;
+    overflow: hidden;
+    width: 100%;
+    border: black solid 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar .class-home {
+    float: left;
+    color: orange;
+    background-color: lawngreen;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    border-right: solid 1px black;
+    width: 15%;
+}
+
+.navbar .class-home {
+    cursor: pointer;
+}
+
+.navbar .class-options {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    border-right: solid 1px black;
+    width: 15%;
+}
+
+.navbar .class-options:hover {
+    color: lightskyblue;
+    background-color: white;
+    cursor: pointer;
+}
+
+.center {
+    margin-top: 20%;
+    text-align: center;
+}
+
+.center label {
+    text-align: center;
+}
+
+.home {
+    background-image: url("../images/home.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: none;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+}

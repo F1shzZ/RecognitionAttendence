@@ -1,0 +1,35 @@
+.window {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+.user {
+    display: block;
+}
+
+.user label,
+a {
+    display: block;
+}
+
+a:hover {
+    color: lightskyblue;
+}
+
+.classes {
+    display: block;
+}
+
+.classbuttons {
+    display: block;
+    border: 2px black solid;
+    border-radius: 4px;
+    color: black;
+    text-align: center;
+}
+
+.classbuttons:hover {
+    color: white;
+    background: aquamarine;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <title>Automate Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script rel="script" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body onload="loadClassrooms('{{classrooms}}')">
+    <div class="window">
+        <div class="user"><label>Welcome {{user}}</label><a href="/logout">log out</a></div>
+        <div class="classes">
+            <form action="/class_home" method="post"></form>
+        </div>
+        <div class="newclass">
+            <form action="/create" method="get"><button class="classbuttons" type="submit">Create new class</button></form>
+        </div>
+    </div>
+</body>

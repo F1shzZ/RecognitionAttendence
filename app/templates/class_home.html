@@ -1,0 +1,14 @@
+<head>
+    <title>Class {{class_code}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/class_main.css') }}">
+    <script rel="script" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <div class="window">
+        <div class="navbar"><a href="{{class_code}}" class="class-home">Class {{class_code}}</a><a href="{{class_code}}/attendance" class="class-options">Attendance</a><a href="{{class_code}}/people" class="class-options">People</a><a href="{{class_code}}/settings" class="class-options">Settings</a></div>
+        <div class="center"><label>Go back to home or use navbar to navigate between options</label>
+            <form action="/home"><button class="home" type="submit"></button></form>
+        </div>
+    </div>
+</body>

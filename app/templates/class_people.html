@@ -1,0 +1,12 @@
+<head>
+    <title>Student List</title>
+</head>
+
+<body>
+    <div class="window">
+        <div class="navbar"><label>Class {{class_code}}</label><a href="{{class_code}}/attendance">attendance</a><a href="{{class_code}}/people">people</a><a href="{{class_code}}/settings">settings</a><button class="home"></button></div>
+        <form class="addStudent" action="{{class_code}}/people/add"
+            method="GET"><button type="submit">Add student</button></form>
+        <form class="studentList" action="{{class_code}}/people" method="POST"></form>
+    </div>
+</body>

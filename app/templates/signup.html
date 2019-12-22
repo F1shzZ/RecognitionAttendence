@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <script rel="script" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <div class="window">
+        <div class="options"><label>Sign up below or return to&nbsp</label><a href="/">login page</a><label class="error_message">{{error}}</label></div>
+        <div class="login">
+            <form method="post" action="/signupfail" onsubmit="return checkInputs()"><input placeholder="username" name="username" type="text"><br><input placeholder="password" name="password" type="password"><br><input placeholder="confirm password" name="confirmpassword" type="password"><br><button type="submit">Sign up</button><br></form>
+        </div><label class="credits">Product of George Wang and Fred Liu</label>
+    </div>
+</body>

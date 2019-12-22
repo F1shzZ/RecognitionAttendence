@@ -1,0 +1,66 @@
+.window {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+.title {
+    text-align: center;
+    display: block;
+    font-family: Impact, sans-serif;
+    font-size: 30px;
+}
+
+.options {
+    margin-top: 10%;
+    text-align: center;
+    display: block;
+}
+
+a:hover {
+    color: lightskyblue;
+}
+
+.error_message {
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.login {
+    text-align: center;
+    display: block;
+}
+
+.login input {
+    padding: 4px;
+    margin-top: 1%;
+    text-align: left;
+    display: inline-block;
+    border: lightgray 4px solid;
+    border-radius: 4px;
+    height: 25px;
+}
+
+.login input:hover, .login input:focus {
+    border: black 4px solid;
+}
+
+.login button {
+    margin-top: 1%;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.login button:hover {
+    background: darkgrey;
+    color: white;
+}
+
+.credits {
+    text-align: right;
+    display: block;
+    margin-top: 25%;
+    padding-right: 40px;
+}

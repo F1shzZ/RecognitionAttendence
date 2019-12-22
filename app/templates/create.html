@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Create Class</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+    <script rel="script" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <div class="window">
+        <form action="/home" method="get"><button class="home" type="submit"></button></form>
+        <div class="title"><label>Create a class below</label><label class="error_message">{{error}}</label></div>
+        <form class="create" action="/creating" method="post" onsubmit="return checkInputs()"><div><input placeholder="Class Code Here" type="text" name="class_code"><button type="submit">Create Class</button></div></form>
+    </div>
+</body>
