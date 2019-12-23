@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "java.dependency.syncWithFolderExplorer": false,
+    "java.dependency.packagePresentation": "hierarchical",
+    "maven.view": "flat",
+    "python.pythonPath": "/usr/local/bin/python3"
+}
