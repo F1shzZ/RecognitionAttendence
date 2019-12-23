@@ -66,7 +66,13 @@ def authenticate(username, password):
     if user.password != password:
         return 'password incorrect'
     return LoginReturn.objects(username=username).first()
-    # return user
+
+
+def getFromId(user_id):
+    user = LoginReturn.objects(id=user_id).first()
+    if not user:
+        return 'no such user id'
+    return user
 
 
 def addGroup(username, group):
@@ -176,26 +182,29 @@ def getAttendence(username, group, date):
     return 'no such group'
 
 
-User.drop_collection()
-LoginReturn.drop_collection()
+if __name__ == '__main__':
 
-print('User', User.objects())
-print('LoginReturn', LoginReturn.objects())
+    User.drop_collection()
+    LoginReturn.drop_collection()
 
-addUser('a', 'a')
-addGroup('a', 'a')
-addMember('a', 'a', 'a')
-addDay('a', 'a', 'a')
-markAttendence('a', 'a', 'a', 'a')
-addUser('d', 'd')
-addUser('b', 'b')
-addUser('c', 'c')
+    print('User', User.objects())
+    print('LoginReturn', LoginReturn.objects())
 
-print('a', addUser('a', 'a'))
+    addUser('a', 'a')
+    addGroup('a', 'a')
+    addMember('a', 'a', 'a')
+    addDay('a', 'a', 'a')
+    markAttendence('a', 'a', 'a', 'a')
+    addUser('d', 'd')
+    addUser('b', 'b')
+    addUser('c', 'c')
 
-print('authenticate user a ', authenticate('a', 'a').username)
+    print('a', addUser('a', 'a'))
 
-removeUser('b')
+    print('authenticate user a ', authenticate('a', 'a').username)
 
-print(json.dumps(json.loads(User.objects().to_json()), sort_keys=True, indent=4))
-print(json.dumps(json.loads(LoginReturn.objects().to_json()), sort_keys=True, indent=4))
+    removeUser('b')
+
+    print(json.dumps(json.loads(User.objects().to_json()), sort_keys=True, indent=4))
+    print(json.dumps(json.loads(LoginReturn.objects().to_json()),
+                     sort_keys=True, indent=4))

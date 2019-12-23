@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <title>user ajax for user login</title>
+  <script
+    type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+  ></script>
+</head>
+
+<label id="label">init status</label>
+<label id="currentUser">current user will be here</label>
+
+<body>
+  <script>
+    setInterval(checkStatus, 1000);
+    function checkStatus() {
+      $.ajax({
+        url: "/checkStatus",
+        type: "GET",
+        success: function(data) {
+          $("#label").html(data.status);
+          console.log(data.status);
+          $("#currentUser").html(data.currentUser);
+        }
+      });
+    }
+  </script>
+</body>

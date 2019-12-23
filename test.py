@@ -1,66 +1,74 @@
-from flask import Flask, flash, render_template
-from flask_login import (LoginManager, UserMixin,
-                         current_user, login_required, login_user, logout_user)
-from mongoengine import Document, connect, StringField
+from flask import Flask, flash, render_template, jsonify
+from flask_login import (LoginManager, current_user,
+                         login_required, login_user, logout_user)
+import mongo as db
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'itssecretkey'
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-connect('test_object')
-
-# message = 'original'
+loginManager = LoginManager()
+loginManager.init_app(app)
 
 
-class User(Document, UserMixin):
-    name = StringField(unique=True)
-
-
-@login_manager.user_loader
+@loginManager.user_loader
 def load_user(user_id):
-    print('LOAD USER', type(user_id), user_id)
-    return User.objects(id=user_id).first()
+    print('\n\nLOAD USER', type(user_id), user_id)
+    user = db.getFromId(user_id)
+    if type(user) == str:
+        return None
+    return user
 
 
-@app.route('/')
-@app.route('/login')
-def index():
-    print('login')
-    user = User.objects(name='testObject').first()
+@app.route('/loginA')
+def loginA():
+    if current_user.is_authenticated:
+        logout_user()
+    print('authenticate')
+    user = db.authenticate('a', 'a')
+    if type(user) == str:
+        return 'user is not available'
     login_user(user)
-    return 'you are now logged in'
+    return 'you are now logged in as   ' + user.username
 
 
-@app.route('/home')
-@login_required
-def home():
-    return 'the current user is ' + current_user.name
+@app.route('/loginB')
+def loginB():
+    if current_user.is_authenticated:
+        logout_user()
+    print('authenticate')
+    user = db.authenticate('b', 'b')
+    if type(user) == str:
+        return 'user is not available'
+    login_user(user)
+    return 'you are now logged in as   ' + user.username
 
 
-@app.route('/test')
-@login_required
-def test():
-    flash('flashed message')
-    return render_template('test2.html')
+@app.route('/loginC')
+def loginC():
+    if current_user.is_authenticated:
+        logout_user()
+    print('authenticate')
+    user = db.authenticate('c', 'c')
+    if type(user) == str:
+        return 'user is not available'
+    login_user(user)
+    return 'you are now logged in as   ' + user.username
 
 
-# not using @login required
+# final version to check user login status
+# see useAjax.html for details
+@app.route('/useAjax')
+def useAjax():
+    return render_template('useAjax.html')
 
-# sustomize login status check
 
-# check status every second
-# if not loged in then display "not logged in"
-# if logged in then displat "already logged in"
-@app.route('/test2')
-def test2():
-    if not current_user.is_authenticated:
-        flash('not loged in')
+@app.route('/checkStatus')
+def checkStatus():
+    if current_user.is_authenticated:
+        return jsonify(status='loged in as   ', currentUser=current_user.username)
     else:
-        flash("already logged in")
-    return render_template('test2.html')
+        return jsonify(status='user is loged out')
 
 
 @app.route('/logout')
