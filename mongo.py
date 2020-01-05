@@ -11,7 +11,7 @@ connect('test')
 
 class Member(EmbeddedDocument):
     name = StringField(required=True)
-    attendence = BooleanField(default=False)
+    attendance = BooleanField(default=False)
 
 
 class Day(EmbeddedDocument):
@@ -151,7 +151,7 @@ def addDay(username, group, date):
     return 'no such group'
 
 
-def markAttendence(username, group, date, name):
+def markAttendance(username, group, date, name):
     user = User.objects(username=username).first()
     if not user:
         return 'no such user'
@@ -161,7 +161,7 @@ def markAttendence(username, group, date, name):
                 if date == day.date:
                     for member in day.members:
                         if name == member.name:
-                            member.attendence = True
+                            member.attendance = True
                             user.save()
                             return 'success'
                     return 'no such member'
@@ -169,7 +169,7 @@ def markAttendence(username, group, date, name):
     return 'no such group'
 
 
-def getAttendence(username, group, date):
+def getAttendance(username, group, date):
     user = User.objects(username=username).first()
     if not user:
         return 'no such user'
@@ -194,7 +194,7 @@ if __name__ == '__main__':
     addGroup('a', 'a')
     addMember('a', 'a', 'a')
     addDay('a', 'a', 'a')
-    markAttendence('a', 'a', 'a', 'a')
+    markAttendance('a', 'a', 'a', 'a')
     addUser('d', 'd')
     addUser('b', 'b')
     addUser('c', 'c')
