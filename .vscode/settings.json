@@ -3,5 +3,8 @@
     "java.dependency.syncWithFolderExplorer": false,
     "java.dependency.packagePresentation": "hierarchical",
     "maven.view": "flat",
-    "python.pythonPath": "/usr/local/bin/python3"
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.enabled": true
 }
