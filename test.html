@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p id="demo"></p>
+
+Name: <input type="text" id="myText" name="fname" value="Mickey"><br>
+
+<p>Click the button to display the value of the name attribute of the text field.</p>
+
+<button onclick="myFunction()">Try it</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+function myFunction() {
+//   var x = document.getElementById("myText").value;
+//   var x = $("#myText").value;
+//   document.getElementById("demo").innerHTML = x;
+var x = $("#myText").val()
+$("#demo").html(x)
+  console.log(x)
+}
+</script>
+
+</body>
+</html>
+
