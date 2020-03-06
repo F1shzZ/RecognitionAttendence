@@ -1,3 +1,5 @@
 # RecognitionAttendence
 
-auto login and db can be found in "GeorgeTest" branch
+master branch has recognize faces, add new faces and remove faces functionalities.
+
+auto login and db can be found under "GeorgeTest" branch
