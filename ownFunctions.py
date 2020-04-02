@@ -3,7 +3,9 @@ import botostubs
 from botocore.exceptions import ClientError
 from os import environ
 from PIL import Image
-client=boto3.client('rekognition') # type: botostubs.Rekognition
+# client=boto3.client('rekognition') # type: botostubs.Rekognition
+
+client = boto3.client('rekognition') # type: botostubs.Rekognition
 
 def ResizePhoto(inputFile,outputFile):
 #	print("Input file is: ",inputFile)
